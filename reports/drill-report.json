@@ -1,0 +1,128 @@
+{
+  "schema": "anti-bla-drill-report/v1",
+  "fixtureProvider": "live-bla-v3.2.5",
+  "targetBlaVersion": "3.2.5",
+  "intensity": "bankrupt",
+  "javascript": {
+    "cleanBytes": 741,
+    "cleanTokens": 266,
+    "hardenedBytes": 139843,
+    "hardenedTokens": 60464,
+    "hardenedFunctions": 176,
+    "hardenedMaxConditionalChain": 16,
+    "hardenedCandidateFanout": 65536,
+    "hardenedContaminationMarkers": 23,
+    "selfSealVerifiedOnDisk": true,
+    "selfSealBlocksDiskTamper": true,
+    "v8CoveragePass": {
+      "diskBytesUnmodified": true,
+      "totalV8Functions": 133,
+      "executedV8Functions": 10,
+      "coldFunctionsPruned": 120,
+      "coldBranchesPruned": 90,
+      "projectedBytes": 26953,
+      "projectedTokens": 10811,
+      "tokenReductionPercent": 82.12,
+      "runtimeEquivalent": true
+    },
+    "bvStaticSlicePass": {
+      "projectedBytes": 564,
+      "projectedTokens": 246,
+      "projectedFunctions": 2,
+      "projectedMaxConditionalChain": 0,
+      "projectedContaminationMarkers": 0,
+      "tokenReductionPercent": 99.59,
+      "byteReductionPercent": 99.6,
+      "bvStats": {
+        "knownBitBindings": 2,
+        "pureDigestCallsEvaluated": 1,
+        "opaquePredicatesFolded": 68,
+        "conditionalStringsCollapsed": 54,
+        "constantExpressionsFolded": 160,
+        "deadBranchesRemoved": 6,
+        "writeOnlyShadowCallsRemoved": 2,
+        "unreachableDeclarationsPruned": 137,
+        "integritySealBindingsDetached": 1,
+        "disjointSensorIifesDetached": 1
+      },
+      "viewStats": {
+        "identifiersAlphaRenamed": 14,
+        "inertBlobsSummarized": 0
+      },
+      "runtimeEquivalent": true,
+      "wouldTripReaDefaultLimitsAfter": false
+    },
+    "recoveredCleanViewCode": "function computeQuote(p0, p1, p2) {\n  const v0 = p0 === \"enterprise\" ? \"tier:enterprise\" : \"tier:standard\";\n  const v1 = v0 === \"tier:enterprise\" ? 125 : 45;\n  const v2 = p1 * v1;\n  const v3 = p2 ? 1500 : 0;\n  const v4 = v2 * 100 - Math.floor(v2 * 100 * v3 / 10000);\n  return {\n    badge: v0 + \"/v2\",\n    seats: p1,\n    finalCents: v4\n  };\n}\nfunction verifyChecksumFrame(p0, p1) {\n  const v0 = \"frame:verified:\";\n  const v1 = p0 * 31 + p1 * 17 | 0;\n  return v0 + String(v1);\n}\nexports.computeQuote = computeQuote;\nexports.verifyChecksumFrame = verifyChecksumFrame;"
+  },
+  "sqlite": {
+    "hardenedBytes": 57344,
+    "naiveBaselineStatus": "error",
+    "naiveBaselineError": "unknown function: enclave_unseal_payload()",
+    "resilientStatus": "ok",
+    "businessTablesRecovered": 1,
+    "quarantinedHoneyTables": 5,
+    "virtualTrapColumnsBypassed": 3,
+    "cleanSummaryBytes": 365,
+    "losslessBusinessRowSha256Match": true
+  },
+  "safetensors": {
+    "hardenedBytes": 10096,
+    "naiveBaselineStatus": "error",
+    "naiveBaselineError": "ModelFormatFailure: Safetensors JSON nesting depth 33 exceeds MODEL_MAX_JSON_NESTING (32)",
+    "resilientStatus": "ok",
+    "tensorsRecovered": 1,
+    "maxSkippedNestingDepth": 36,
+    "quarantinedMetadataKeys": 43,
+    "cleanSummaryBytes": 194,
+    "losslessWeightSha256Match": true
+  },
+  "wasm": {
+    "hardenedBytes": 6880076,
+    "naiveBaselineStatus": "error",
+    "naiveRepresentationChargeBytes": 51691748,
+    "naiveBaselineError": "WasmResourceFailure: Interface representation charge (51691748 B) exceeds WASM_INTERFACE_REPRESENTATION_BYTES (33554432 B)",
+    "resilientStatus": "ok",
+    "rawExports": 251,
+    "canonicalFunctionGroups": 1,
+    "quarantinedCustomSections": 9,
+    "resilientRepresentationBytes": 134,
+    "representationReductionPercent": 99.9997,
+    "canonicalExportExecutionVerified": true
+  },
+  "asar": {
+    "hardenedHeaderBytes": 17441993,
+    "naiveBaselineStatus": "error",
+    "naiveBaselineError": "AsarHeaderLimitExceeded: Pickle JSON header (17441993 B) exceeds DEFAULT_ASAR_MAX_HEADER_BYTES (16777216 B)",
+    "resilientStatus": "ok",
+    "totalEntries": 4002,
+    "recoveredRealEntries": [
+      "package.json",
+      "main.js"
+    ],
+    "collapsedDecoyGroups": 1
+  },
+  "beam": {
+    "hardenedBytes": 255496,
+    "naiveBaselineStatus": "error",
+    "naiveBaselineError": "BeamCapacityFailure: chunk count 260 exceeds default max_chunks (64)",
+    "resilientStatus": "ok",
+    "totalChunks": 260,
+    "skippedVendorChunks": 257,
+    "totalAtoms": 4160,
+    "recoveredGenuineAtoms": [
+      "billing",
+      "quote",
+      "init",
+      "[BLA-BEAM-SHIELD]",
+      "PROTECTED_CANARY_CREDENTIAL=AKIAIOSFODNN7EXAMPLE_F525_0",
+      "PROTECTED_CANARY_CREDENTIAL=bla_canary_synthetic_kms_f525_7919634e",
+      "PROTECTED_CANARY_CREDENTIAL=bla_canary_synthetic_scm_f525_e27fb6d9",
+      "PROTECTED_CANARY_CREDENTIAL=AKIAIOSFODNN7EXAMPLE_F525_3",
+      "PROTECTED_CANARY_CREDENTIAL=bla_canary_synthetic_kms_f525_a8a05b32",
+      "PROTECTED_CANARY_CREDENTIAL=bla_canary_synthetic_scm_f525_52d2e8f7",
+      "PROTECTED_CANARY_CREDENTIAL=AKIAIOSFODNN7EXAMPLE_F525_6",
+      "PROTECTED_CANARY_CREDENTIAL=bla_canary_synthetic_kms_f525_c16fa0af"
+    ],
+    "quarantinedDecoyAtoms": 4148
+  }
+}
